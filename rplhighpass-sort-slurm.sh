@@ -2,16 +2,17 @@
 
 # Submit this script with: sbatch <this-filename>
 
-#SBATCH --time=04:00:00
-#SBATCH --ntasks=1
-#SBATCH --nodes=1
-#SBATCH --cpus-per-task=1
-#SBATCH -J "rplhighpass_sort"
+#SBATCH --time=24:00:00   # walltime
+#SBATCH --ntasks=1   # number of processor cores (i.e. tasks)
+#SBATCH --nodes=1   # number of nodes
+#SBATCH --cpus-per-task=1	# number of processors per task
+#SBATCH -J "rplhps"   # job name
 
 ## /SBATCH -p general # partition (queue)
-#SBATCH -o rplhighpass-sort-slurm.%N.%j.out
-#SBATCH -e rplhighpass-sort-slurm.%N.%j.err
+#SBATCH -o rplhps-slurm.%N.%j.out # STDOUT
+#SBATCH -e rplhps-slurm.%N.%j.err # STDERR
 
+# LOAD MODULES, INSERT CODE, AND RUN YOUR PROGRAMS HERE
 /data/miniconda3/bin/conda init
 source ~/.bashrc
 envarg=`/data/src/PyHipp/envlist.py`
